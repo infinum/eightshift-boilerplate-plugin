@@ -83,12 +83,13 @@ if [ "$confirmation" == "y" ]; then
   findReplace "init_author_name" "$init_author_name <$init_author_email>"
   findReplace "init_plugin_name" "$init_package_name"
 
-  # Change folder name
+  # Change folder name and main file.
   if [ "$init_package_name" != "init_plugin_name" ]; then
     mv "./init_plugin_name" "./$init_package_name"
+    mv "./$init_package_name/init_plugin_name.php" "./$init_package_name/$init_package_name.php"
   fi
 
-  echo "${BBLUE}Finished! Success! Now start move the plugin to your WordPress project.${NC}"
+  echo "${BBLUE}Finished! Success! Now move the plugin to your WordPress project.${NC}"
 
 else
   echo "\n${RED}Cancelled.${NC}"

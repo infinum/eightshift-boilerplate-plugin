@@ -1,1 +1,2 @@
-skin/assets/scripts/vendors/*.js
+skin/assets/admin/scripts/vendors/*.js
+skin/assets/theme/scripts/vendors/*.js
