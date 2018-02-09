@@ -78,7 +78,7 @@ read confirmation
 if [ "$confirmation" == "y" ]; then
 
   # Replace strings
-  findReplace "init_theme_real_name" "$init_plugin_real_name"
+  findReplace "init_plugin_real_name" "$init_plugin_real_name"
   findReplace "init_description" "$init_description"
   findReplace "init_author_name" "$init_author_name <$init_author_email>"
   findReplace "init_plugin_name" "$init_package_name"
