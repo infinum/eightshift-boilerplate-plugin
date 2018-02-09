@@ -2,7 +2,6 @@
 /**
  * Plugin main file starting point
  *
- * @link              
  * @since             1.0.0
  * @package           init_plugin_name
  *

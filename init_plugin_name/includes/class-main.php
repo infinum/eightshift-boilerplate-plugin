@@ -27,7 +27,7 @@ class Main {
   /**
    * Loader variable for hooks
    *
-   * @var Loader    $loader    Maintains and registers all hooks for the plugin.
+   * @var Loader $loader Maintains and registers all hooks for the plugin.
    *
    * @since 1.0.0
    */
