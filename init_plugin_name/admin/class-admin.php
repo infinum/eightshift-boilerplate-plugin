@@ -45,7 +45,7 @@ class Admin {
   /**
    * Initialize class
    *
-   * @param array $plugin_info Load global theme info.
+   * @param array $plugin_info Load global plugin info.
    *
    * @since 1.0.0
    */

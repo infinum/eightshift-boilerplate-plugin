@@ -70,12 +70,12 @@ alias wpcbf='phpcbf --standard=vendor/infinum/coding-standards-wp/Infinum';
 ```
 * Reload terminal
 
-Checking theme for possible violations:
+Checking plugin for possible violations:
 ```
 wpcs init_plugin_name
 ```
 
-Autofix theme for minor violations:
+Autofix plugin for minor violations:
 ```
 wpcbf init_plugin_name
 ```
