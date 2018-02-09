@@ -80,12 +80,5 @@ class Admin {
     wp_register_script( $this->plugin_name . '-scripts', plugin_dir_url( __DIR__ ) . $main_script, array(), $this->general_helper->get_assets_version( $main_script ) );
     wp_enqueue_script( $this->plugin_name . '-scripts' );
 
-    // Global variables for ajax and translations.
-    wp_localize_script(
-      $this->plugin_name . '-scripts', 'init_plugin_name_Admin_Localization', array(
-          'ajaxurl' => admin_url( 'admin-ajax.php' ),
-      )
-    );
-
   }
 }
