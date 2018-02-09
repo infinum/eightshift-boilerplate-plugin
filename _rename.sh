@@ -29,48 +29,48 @@ function findReplace() {
   find . -type f -name '*.sedbak' | xargs -n1 rm
 }
 
-echo "This script will rename your theme and its contents. It will setup you project. \n"
+echo "This script will rename your plugin and its contents. It will setup you project. \n"
 
-echo "${BBLUE}Please enter your theme name:${NC}"
-echo "(This is the name that will be showed in the WordPress admin as the theme name.)"
-read theme_name_real_name
+echo "${BBLUE}Please enter your plugin name:${NC}"
+echo "(This is the name that will be showed in the WordPress admin as the plugin name.)"
+read init_plugin_real_name
 
-if [[ -z "$theme_name_real_name" ]]; then
-  echo "${RED}Theme name field is required ${NC}"
+if [[ -z "$init_plugin_real_name" ]]; then
+  echo "${RED}Plugin name field is required ${NC}"
   exit 1
 fi
 
 echo "\n${BBLUE}Please enter your package name:${NC}"
-echo "(This is the name that will be used for translations in all @package fields and the name of your theme folder.)"
+echo "(This is the name that will be used for translations in all @package fields and the name of your plugin folder.)"
 echo "(Must be lowercase with no special characters and no spaces. You can use '_' or '-' for spaces)"
-read theme_package_name
+read init_package_name
 
-if [[ -z "$theme_package_name" ]]; then
+if [[ -z "$init_package_name" ]]; then
   echo "${RED}Package name field is required ${NC}"
   exit 1
 fi
 
-theme_package_name="${theme_package_name// /-}"
-theme_package_name=$(strtolower $theme_package_name)
+init_package_name="${init_package_name// /-}"
+init_package_name=$(strtolower $init_package_name)
 
 
-echo "\n${BBLUE}Please enter your theme description:${NC}"
-read theme_description
+echo "\n${BBLUE}Please enter your plugin description:${NC}"
+read init_description
 
 echo "\n${BBLUE}Please enter author name:${NC}"
-read theme_author_name
+read init_author_name
 
 echo "\n${BBLUE}Please enter author email:${NC}"
-read theme_author_email
+read init_author_email
 
 echo "\n----------------------------------------------------\n"
 
 echo "${BBLUE}Your details will be:${NC}\n"
-echo "Theme Name: ${BBLUE}$theme_name_real_name${NC}"
-echo "Description: ${BBLUE}$theme_description${NC}"
-echo "Author: ${BBLUE}$theme_author_name${NC} <${BBLUE}$theme_author_email${NC}>"
-echo "Text Domain: ${BBLUE}$theme_package_name${NC}"
-echo "Package: ${BBLUE}$theme_package_name${NC}"
+echo "Plugin Name: ${BBLUE}$init_plugin_real_name${NC}"
+echo "Description: ${BBLUE}$init_description${NC}"
+echo "Author: ${BBLUE}$init_author_name${NC} <${BBLUE}$init_author_email${NC}>"
+echo "Text Domain: ${BBLUE}$init_package_name${NC}"
+echo "Package: ${BBLUE}$init_package_name${NC}"
 
 echo "\n${RED}Confirm? (y/n)${NC}"
 read confirmation
@@ -78,17 +78,17 @@ read confirmation
 if [ "$confirmation" == "y" ]; then
 
   # Replace strings
-  findReplace "init_theme_real_name" "$theme_name_real_name"
-  findReplace "init_description" "$theme_description"
-  findReplace "init_author_name" "$theme_author_name <$theme_author_email>"
-  findReplace "init_theme_name" "$theme_package_name"
+  findReplace "init_theme_real_name" "$init_plugin_real_name"
+  findReplace "init_description" "$init_description"
+  findReplace "init_author_name" "$init_author_name <$init_author_email>"
+  findReplace "init_plugin_name" "$init_package_name"
 
   # Change folder name
-  if [ "$theme_package_name" != "init_theme_name" ]; then
-    mv "./wp-content/themes/init_theme_name" "./wp-content/themes/$theme_package_name"
+  if [ "$init_package_name" != "init_plugin_name" ]; then
+    mv "./init_plugin_name" "./$init_package_name"
   fi
 
-  echo "${BBLUE}Finished! Success! Now start _setup.sh script to begin installations.${NC}"
+  echo "${BBLUE}Finished! Success! Now start move the plugin to your WordPress project.${NC}"
 
 else
   echo "\n${RED}Cancelled.${NC}"
