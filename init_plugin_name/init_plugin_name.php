@@ -7,11 +7,11 @@
  *
  * @wordpress-plugin
  * Plugin Name:       init_plugin_real_name
- * Plugin URI:        
+ * Plugin URI:
  * Description:       init_description
  * Version:           1.0.0
  * Author:            init_author_name
- * Author URI:        
+ * Author URI:
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       init_plugin_name
