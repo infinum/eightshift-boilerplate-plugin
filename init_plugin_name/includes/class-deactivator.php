@@ -15,7 +15,7 @@ namespace Inf_Plugin\Includes;
 class Deactivator {
 
   /**
-   * Flush permalinks
+   * Run functions on plugin deactivation
    *
    * @since 1.0.0
    */

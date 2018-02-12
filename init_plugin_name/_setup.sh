@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 function setup() {
   npm install
   composer install

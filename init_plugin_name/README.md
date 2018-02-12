@@ -49,14 +49,15 @@ To set it up go to `webpack.config.js` and set `proxyUrl` variable to link of yo
 It is tested on MAMP and Vagrant (VVV).
 
 ## Linting Assets (JS,SASS)
-Lints JS and SASS using Webpack
+We are using Infinum [ES](https://www.npmjs.com/package/@infinumjs/eslint-config) and [Style](https://www.npmjs.com/package/@infinumjs/stylelint-config) linters. 
+Lints JS and SASS using Webpack.
 
 ```
 npm run precommit
 ```
 
 ## Linting PHP ##
-We are using [Infinum coding standards for WordPress](https://github.com/infinum/coding-standards-wp) to check php files.
+We are using [Infinum coding standards for WordPress](https://github.com/infinum/coding-standards-wp) to check php files. There are some subtle differences between ours and WordPress coding standards like spaces vs tabs, 2 spaces vs 4 etc.
 
 To install it, you need to install [Composer](https://getcomposer.org/) first.
 
@@ -96,7 +97,7 @@ sh _build.sh
 ```
 
 ## Note
-* This plugin uses OOP with namespaces and autoloader.
+This means that for the plugin to work you need to have, at the minimum, php 5.3. Although we recommend that you use php 7 because of the performance benefits.
 
 ## Credits
 

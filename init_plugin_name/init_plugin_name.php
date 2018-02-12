@@ -51,6 +51,18 @@ define( 'INF_PLUGIN_NAME', 'init_plugin_name' );
 include_once( 'lib/autoloader.php' );
 
 /**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-activator.php
+ *
+ * @since 1.0.0
+ */
+function activate() {
+  Includes\Activator::activate();
+}
+
+register_activation_hook( __FILE__, __NAMESPACE__ . '\\activate' );
+
+/**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-deactivator.php
  *
