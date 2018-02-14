@@ -12,7 +12,7 @@ For questions talk to:
 
 ## It contains:
 
-* Webpack3+ config and build for theme and admin
+* Webpack3+ config and build for Front and Admin parts
 * ES Linting
 * Style Linting
 * PHP Error Check

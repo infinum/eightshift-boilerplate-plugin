@@ -1,19 +1,19 @@
 <?php
 /**
- * The theme-specific functionality of the plugin.
+ * The front-specific functionality of the plugin.
  *
  * @since   1.0.0
  * @package init_plugin_name
  */
 
-namespace Inf_Plugin\Theme;
+namespace Inf_Plugin\Front;
 
 use Inf_Plugin\Helpers as General_Helpers;
 
 /**
- * Class Theme
+ * Class Front
  */
-class Theme {
+class Front {
 
   /**
    * Global plugin name
@@ -63,7 +63,7 @@ class Theme {
    */
   public function enqueue_styles() {
 
-    $main_style = 'skin/public/theme/styles/application.css';
+    $main_style = 'skin/public/front/styles/application.css';
     wp_register_style( $this->plugin_name . '-style', plugin_dir_url( __DIR__ ) . $main_style, array(), $this->general_helper->get_assets_version( $main_style ) );
     wp_enqueue_style( $this->plugin_name . '-style' );
 
@@ -76,7 +76,7 @@ class Theme {
    */
   public function enqueue_scripts() {
 
-    $main_script = 'skin/public/theme/scripts/application.js';
+    $main_script = 'skin/public/front/scripts/application.js';
     wp_register_script( $this->plugin_name . '-scripts', plugin_dir_url( __DIR__ ) . $main_script, array(), $this->general_helper->get_assets_version( $main_script ) );
     wp_enqueue_script( $this->plugin_name . '-scripts' );
 

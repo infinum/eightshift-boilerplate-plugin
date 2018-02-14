@@ -21,8 +21,8 @@ const pluginFullPath = `${appPath}${pluginPath}`;
 const pluginPublicPath = `${pluginPath}/public/`;
 const pluginAdminEntry = `${pluginFullPath}/assets/admin/application.js`;
 const pluginAdminOutput = `${pluginFullPath}/public/admin`;
-const pluginThemeEntry = `${pluginFullPath}/assets/theme/application.js`;
-const pluginThemeOutput = `${pluginFullPath}/public/theme`;
+const pluginFrontEntry = `${pluginFullPath}/assets/front/application.js`;
+const pluginFrontOutput = `${pluginFullPath}/public/front`;
 
 
 // Outputs
@@ -95,7 +95,7 @@ const allPlugins = [
 // Use only for production build
 if (!DEV) {
   allPlugins.push(
-    new CleanWebpackPlugin([pluginAdminOutput, pluginThemeOutput]),
+    new CleanWebpackPlugin([pluginAdminOutput, pluginFrontOutput]),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false,
@@ -130,14 +130,14 @@ module.exports = [
     devtool: DEV ? '#inline-source-map' : '',
   },
 
-  // Theme Part.
+  // Front Part.
   {
     context: path.join(__dirname),
     entry: {
-      application: [pluginThemeEntry],
+      application: [pluginFrontEntry],
     },
     output: {
-      path: pluginThemeOutput,
+      path: pluginFrontOutput,
       publicPath: pluginPublicPath,
       filename: outputJs,
     },

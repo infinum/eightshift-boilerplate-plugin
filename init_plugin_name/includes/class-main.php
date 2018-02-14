@@ -12,7 +12,7 @@
 namespace Inf_Plugin\Includes;
 
 use Inf_Plugin\Admin as Admin;
-use Inf_Plugin\Theme as Theme;
+use Inf_Plugin\Front as Front;
 
 /**
  * The main start class.
@@ -82,7 +82,7 @@ class Main {
     $this->load_dependencies();
     $this->set_locale();
     $this->define_admin_hooks();
-    $this->define_theme_hooks();
+    $this->define_front_hooks();
   }
 
   /**
@@ -126,16 +126,16 @@ class Main {
   }
 
   /**
-   * Register all of the hooks related to the theme area functionality
+   * Register all of the hooks related to the front area functionality
    * of the plugin.
    *
    * @since 1.0.0
    */
-  private function define_theme_hooks() {
-    $theme = new Theme\Theme( $this->get_plugin_info() );
+  private function define_front_hooks() {
+    $front = new Front\Front( $this->get_plugin_info() );
 
-    $this->loader->add_action( 'wp_enqueue_scripts', $theme, 'enqueue_scripts' );
-    $this->loader->add_action( 'wp_enqueue_scripts', $theme, 'enqueue_styles' );
+    $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_scripts' );
+    $this->loader->add_action( 'wp_enqueue_scripts', $front, 'enqueue_styles' );
 
   }
 
