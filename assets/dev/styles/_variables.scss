@@ -1,0 +1,35 @@
+// Colors
+$white-color: #FFFFFF;
+$black-color: #000000;
+$dark-grey-color: #3C3C41;
+$medium-grey-color: #4D4D53;
+$light-grey-color: #969696;
+$blue-grey-color: #828A9F;
+$gray-color: #DADEE4;
+$dirty-white-color: #EBEBEC;
+$pale-white-color: #F9F8F8;
+$red-color: #AA0000;
+$light-red-color: #DC3232;
+$green-color: #46B450;
+$blue-color: #0073AA;
+$error-color: #E41D30;
+$success-color: #13CE59;
+
+//Typography
+
+$main-font-family: Arial, Helvetica, sans-serif;
+$code-font-family: monospace;
+
+$text-color: $blue-grey-color;
+
+$typography-map: (
+  huge:     48px,
+  big:      36px,
+  large:    24px,
+  default:  20px,
+  medium:   18px,
+  small:    16px,
+  smaller:  14px,
+  smallest: 12px,
+  tiny:     10px,
+);
