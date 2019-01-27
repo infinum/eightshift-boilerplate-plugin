@@ -17,7 +17,7 @@ use WP_Boilerplate_Plugin\Custom_Fields\Custom_Field;
  *
  * @since 1.0.0
  */
-final class Example_Post extends Base_Post_Type {
+final class Example_Post_Type extends Base_Post_Type {
 
   /**
    * The custom post type slug

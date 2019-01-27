@@ -65,6 +65,40 @@ abstract class Base_Asset implements Asset {
   }
 
   /**
+   * Check that the URI has the correct extension.
+   *
+   * Optionally adds the extension if none was detected.
+   *
+   * @param string $uri       URI to check the extension of.
+   * @param string $extension Extension to use.
+   *
+   * @return string URI with correct extension.
+   */
+  public function check_extension( $uri, $extension ) {
+    $detected_extension = pathinfo( $uri, PATHINFO_EXTENSION );
+
+    if ( $extension !== $detected_extension ) {
+      $uri .= '.' . $extension;
+    }
+
+    return $uri;
+  }
+
+  /**
+   * Get the enqueue closure to use.
+   *
+   * @return Closure
+   */
+  abstract protected function get_register_closure() : Closure;
+
+  /**
+   * Get the enqueue closure to use.
+   *
+   * @return Closure
+   */
+  abstract protected function get_enqueue_closure() : Closure;
+
+  /**
    * Add a deferred action hook.
    *
    * If the action has already passed, the closure will be called directly.
@@ -130,38 +164,4 @@ abstract class Base_Asset implements Asset {
 
     return PLUGIN_BASE_URL . $asset;
   }
-
-  /**
-   * Check that the URI has the correct extension.
-   *
-   * Optionally adds the extension if none was detected.
-   *
-   * @param string $uri       URI to check the extension of.
-   * @param string $extension Extension to use.
-   *
-   * @return string URI with correct extension.
-   */
-  public function check_extension( $uri, $extension ) {
-    $detected_extension = pathinfo( $uri, PATHINFO_EXTENSION );
-
-    if ( $extension !== $detected_extension ) {
-      $uri .= '.' . $extension;
-    }
-
-    return $uri;
-  }
-
-  /**
-   * Get the enqueue closure to use.
-   *
-   * @return Closure
-   */
-  abstract protected function get_register_closure() : Closure;
-
-  /**
-   * Get the enqueue closure to use.
-   *
-   * @return Closure
-   */
-  abstract protected function get_enqueue_closure() : Closure;
 }

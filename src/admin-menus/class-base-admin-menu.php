@@ -96,6 +96,51 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
   }
 
   /**
+   * Get the title to use for the admin page.
+   *
+   * @return string The text to be displayed in the title tags of the page when the menu is selected.
+   */
+  abstract protected function get_title() : string;
+
+  /**
+   * Get the menu title to use for the admin menu.
+   *
+   * @return string The text to be used for the menu.
+   */
+  abstract protected function get_menu_title() : string;
+
+  /**
+   * Get the capability required for this menu to be displayed.
+   *
+   * @return string The capability required for this menu to be displayed to the user.
+   */
+  abstract protected function get_capability() : string;
+
+  /**
+   * Get the menu slug.
+   *
+   * @return string The slug name to refer to this menu by. Should be unique for this menu page and only include lowercase alphanumeric, dashes, and underscores characters to be compatible with sanitize_key().
+   */
+  abstract protected function get_menu_slug() : string;
+
+  /**
+   * Get the View URI to use for rendering the admin menu.
+   *
+   * @return string View URI.
+   */
+  abstract protected function get_view_uri() : string;
+
+  /**
+   * Process the admin menu attributes.
+   *
+   * @param array|string $atts Raw admin menu attributes passed into the
+   *                           admin menu function.
+   *
+   * @return array Processed admin menu attributes.
+   */
+  abstract protected function process_attributes( $atts ) : array;
+
+  /**
    * Render the nonce.
    *
    * @return string Hidden field with a nonce.
@@ -150,34 +195,6 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
   protected function get_nonce_name() : string {
     return "{$this->get_menu_slug()}_nonce";
   }
-
-  /**
-   * Get the title to use for the admin page.
-   *
-   * @return string The text to be displayed in the title tags of the page when the menu is selected.
-   */
-  abstract protected function get_title() : string;
-
-  /**
-   * Get the menu title to use for the admin menu.
-   *
-   * @return string The text to be used for the menu.
-   */
-  abstract protected function get_menu_title() : string;
-
-  /**
-   * Get the capability required for this menu to be displayed.
-   *
-   * @return string The capability required for this menu to be displayed to the user.
-   */
-  abstract protected function get_capability() : string;
-
-  /**
-   * Get the menu slug.
-   *
-   * @return string The slug name to refer to this menu by. Should be unique for this menu page and only include lowercase alphanumeric, dashes, and underscores characters to be compatible with sanitize_key().
-   */
-  abstract protected function get_menu_slug() : string;
 
   /**
    * Get the URL to the icon to be used for this menu
@@ -271,21 +288,4 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
   protected function persist( $post_id ) : void {
     return; // phpcs:ignore
   }
-
-  /**
-   * Get the View URI to use for rendering the admin menu.
-   *
-   * @return string View URI.
-   */
-  abstract protected function get_view_uri() : string;
-
-  /**
-   * Process the admin menu attributes.
-   *
-   * @param array|string $atts Raw admin menu attributes passed into the
-   *                           admin menu function.
-   *
-   * @return array Processed admin menu attributes.
-   */
-  abstract protected function process_attributes( $atts ) : array;
 }

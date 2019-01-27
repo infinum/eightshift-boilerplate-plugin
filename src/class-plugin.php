@@ -210,8 +210,7 @@ final class Plugin implements Registerable, Has_Activation, Has_Deactivation {
   private function get_service_classes() : array {
     return [
       Admin_Menus\Plugin_Options::class,
-      Authorization\Operations_Role::class,
-      Custom_Post_Type\Example_Post::class,
+      Custom_Post_Type\Example_Post_Type::class,
       Custom_Taxonomy\Example_Taxonomy::class,
       Routes\Register_Rest_Routes::class,
     ];

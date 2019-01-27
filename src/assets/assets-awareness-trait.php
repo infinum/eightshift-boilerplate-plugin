@@ -25,6 +25,15 @@ trait Assets_Awareness {
   protected $assets_handler;
 
   /**
+   * Set the assets handler to use within this object.
+   *
+   * @param Assets_Handler $assets Assets handler to use.
+   */
+  public function with_assets_handler( Assets_Handler $assets ) {
+    $this->assets_handler = $assets;
+  }
+
+  /**
    * Get the array of known assets.
    *
    * @return array
@@ -62,14 +71,5 @@ trait Assets_Awareness {
    */
   protected function enqueue_asset( $handle ) {
     $this->assets_handler->enqueue_handle( $handle );
-  }
-
-  /**
-   * Set the assets handler to use within this object.
-   *
-   * @param Assets_Handler $assets Assets handler to use.
-   */
-  public function with_assets_handler( Assets_Handler $assets ) {
-    $this->assets_handler = $assets;
   }
 }

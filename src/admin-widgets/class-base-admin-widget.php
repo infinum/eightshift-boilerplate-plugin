@@ -125,16 +125,6 @@ abstract class Base_Admin_Widget implements Renderable, Service, Assets_Aware {
   abstract protected function get_widget_name() : string;
 
   /**
-   * Get the widget callback arguments
-   *
-   * @return array Data that should be set as the $args property
-   * of the widget array (which is the second parameter passed to your callback.
-   */
-  protected function get_widget_callback_args() : array {
-    return [];
-  }
-
-  /**
    * Get the View URI to use for rendering the widget.
    *
    * @return string View URI.
@@ -158,4 +148,14 @@ abstract class Base_Admin_Widget implements Renderable, Service, Assets_Aware {
    * @link https://codex.wordpress.org/Roles_and_Capabilities
    */
   abstract protected function get_permission_capability() : string;
+
+  /**
+   * Get the widget callback arguments
+   *
+   * @return array Data that should be set as the $args property
+   * of the widget array (which is the second parameter passed to your callback.
+   */
+  protected function get_widget_callback_args() : array {
+    return [];
+  }
 }

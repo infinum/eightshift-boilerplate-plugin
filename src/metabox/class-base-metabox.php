@@ -99,6 +99,46 @@ abstract class Base_Metabox implements Renderable, Service, Assets_Aware {
   }
 
   /**
+   * Do the actual persistence of the changed data.
+   *
+   * @param int $post_id ID of the post to persist.
+   *
+   * @return void
+   */
+  abstract protected function persist( int $post_id ) : void;
+
+  /**
+   * Get the View URI to use for rendering the metabox.
+   *
+   * @return string View URI.
+   */
+  abstract protected function get_view_uri() : string;
+
+  /**
+   * Process the metabox attributes.
+   *
+   * @param array|string $atts Raw metabox attributes passed into the
+   *                           metabox function.
+   *
+   * @return array Processed metabox attributes.
+   */
+  abstract protected function process_attributes( $atts ) : array;
+
+  /**
+   * Get the ID to use for the metabox.
+   *
+   * @return string ID to use for the metabox.
+   */
+  abstract protected function get_id() : string;
+
+  /**
+   * Get the title to use for the metabox.
+   *
+   * @return string Title to use for the metabox.
+   */
+  abstract protected function get_title() : string;
+
+  /**
    * Render the nonce.
    *
    * @return string Hidden field with a nonce.
@@ -153,20 +193,6 @@ abstract class Base_Metabox implements Renderable, Service, Assets_Aware {
   protected function get_nonce_name() : string {
     return "{$this->get_id()}_nonce";
   }
-
-  /**
-   * Get the ID to use for the metabox.
-   *
-   * @return string ID to use for the metabox.
-   */
-  abstract protected function get_id() : string;
-
-  /**
-   * Get the title to use for the metabox.
-   *
-   * @return string Title to use for the metabox.
-   */
-  abstract protected function get_title() : string;
 
   /**
    * Get the screen on which to show the metabox.
@@ -251,30 +277,4 @@ abstract class Base_Metabox implements Renderable, Service, Assets_Aware {
       return $post_id;
     };
   }
-
-  /**
-   * Do the actual persistence of the changed data.
-   *
-   * @param int $post_id ID of the post to persist.
-   *
-   * @return void
-   */
-  abstract protected function persist( int $post_id ) : void;
-
-  /**
-   * Get the View URI to use for rendering the metabox.
-   *
-   * @return string View URI.
-   */
-  abstract protected function get_view_uri() : string;
-
-  /**
-   * Process the metabox attributes.
-   *
-   * @param array|string $atts Raw metabox attributes passed into the
-   *                           metabox function.
-   *
-   * @return array Processed metabox attributes.
-   */
-  abstract protected function process_attributes( $atts ) : array;
 }
