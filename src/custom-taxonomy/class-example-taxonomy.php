@@ -11,7 +11,7 @@ declare( strict_types=1 );
 namespace WP_Boilerplate_Plugin\Custom_Taxonomy;
 
 use WP_Boilerplate_Plugin\Core\Service;
-use WP_Boilerplate_Plugin\Custom_Post_Type\Example_Post;
+use WP_Boilerplate_Plugin\Custom_Post_Type\Example_Post_Type;
 use WP_Boilerplate_Plugin\Custom_Post_Type\Label_Generator;
 
 /**
@@ -32,7 +32,7 @@ class Example_Taxonomy extends Base_Taxonomy {
    *
    * @var string
    */
-   const POST_TYPE_SLUG = Example_Post::POST_TYPE_SLUG;
+   const POST_TYPE_SLUG = Example_Post_Type::POST_TYPE_SLUG;
 
   /**
    * Get the slug of the custom taxonomy
