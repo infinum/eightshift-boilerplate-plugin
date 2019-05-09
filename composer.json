@@ -1,0 +1,49 @@
+{
+  "name": "infinum/wp-boilerplate-plugin",
+  "type": "wordpress-plugin",
+  "description": "This is WP Boilerplate Plugin, a modern boilerplate/starter plugin",
+  "keywords": [
+    "plugin",
+    "boilerplate",
+    "WordPress"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Contributors",
+      "homepage": "https://github.com/infinum/wp-boilerplate-plugin/graphs/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=7.2"
+  },
+  "require-dev": {
+    "10up/wp_mock": "^0.3.0",
+    "brain/monkey": "^2.2",
+    "codedungeon/phpunit-result-printer": "^0.20.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+    "infinum/coding-standards-wp": "*",
+    "phpunit/phpunit": "^6.5",
+    "roave/security-advisories": "dev-master"
+  },
+  "autoload": {
+    "classmap": [
+      "src/",
+      "views/",
+      "tests/"
+    ]
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "process-timeout": 2000
+  },
+  "scripts"    : {
+    "check-cs": "@php ./vendor/bin/phpcs --extensions=php --ignore=/vendor/",
+    "fix-cs": "@php ./vendor/bin/phpcbf --extensions=php --ignore=/vendor/",
+    "punit": "@php ./vendor/bin/phpunit -c phpunit.xml.dist --no-coverage --colors=always",
+    "punit-cov": "@php ./vendor/bin/phpunit -c phpunit.xml.dist --colors=always",
+    "pint": "@php ./vendor/bin/phpunit -c phpunit.integration.xml.dist --no-coverage --colors=always",
+    "pint-cov": "@php ./vendor/bin/phpunit -c phpunit.integration.xml.dist --colors=always"
+  }
+}
