@@ -16,6 +16,7 @@
   ],
   "require": {
     "php": ">=7.0",
+    "infinum/eightshift-libs": "0.5.0"
   },
   "require-dev": {
     "10up/wp_mock": "^0.3.0",
