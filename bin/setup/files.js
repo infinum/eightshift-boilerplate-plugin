@@ -1,5 +1,6 @@
-import {path} from 'path';
-import {replace} from 'replace-in-file'; // eslint-disable-line import/no-extraneous-dependencies
+const replace = require('replace-in-file'); // eslint-disable-line import/no-extraneous-dependencies
+const path = require('path');
+const fs = require('fs');
 
 const fullPath = path.join(process.cwd());
 
@@ -9,7 +10,7 @@ const fullPath = path.join(process.cwd());
  * @param {string} findString
  * @param {string} replaceString
  */
-export const findReplace = async(findString, replaceString) => {
+const findReplace = async(findString, replaceString) => {
   const regex = new RegExp(findString, 'g');
   const options = {
     files: `${fullPath}/**/*`,
@@ -31,12 +32,40 @@ export const findReplace = async(findString, replaceString) => {
   }
 };
 
-export const replaceThemeData = async({name, packageName, namespace}) => {
+module.exports.findReplace = findReplace;
+module.exports.replaceThemeData = async({name, packageName, namespace}) => {
 
-  // Replace all the things in paralel.
-  await Promise.all([
-    findReplace('WP Boilerplate Plugin', name),
-    findReplace('wp-boilerplate-plugin', packageName),
-    findReplace('WP_Boilerplate_Plugin', namespace),
-  ]);
+  // Plugin's main file - change name.
+  await replace({
+    files: path.join(fullPath, 'wp-boilerplate-plugin.php'),
+    from: /^ \* Plugin Name: {7}.*$/m,
+    to: ` * Plugin Name:       ${name}`,
+  });
+
+  // Plugin's main file - rename it.
+  await fs.rename(
+    path.join(fullPath, 'wp-boilerplate-plugin.php'),
+    path.join(fullPath, `${packageName}.php`),
+    function(err) {
+      if (err) {
+        throw err;
+      }
+    }
+  );
+
+  // Replace all the things.
+  await findReplace('WP Boilerplate Plugin', name);
+  await findReplace('wp-boilerplate-plugin', packageName);
+  await findReplace('WP_Boilerplate_Plugin', namespace);
+
+  // Let's also rename the folder name once we're done with everything else.
+  await fs.rename(
+    fullPath,
+    fullPath.replace('wp-boilerplate-plugin', packageName),
+    function(err) {
+      if (err) {
+        throw err;
+      }
+    }
+  );
 };

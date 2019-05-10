@@ -1,14 +1,15 @@
-// import {exec} from 'promisify-child-process'; // eslint-disable-line import/no-extraneous-dependencies
+const {exec} = require('promisify-child-process'); // eslint-disable-line import/no-extraneous-dependencies
+const consoleJs = require('./setup/console.js');
+const filesJs = require('./setup/files.js');
 
-import {
+const {
   installStep,
   installStepFinal,
   outputIntro,
   promptData,
-} from './setup/console';
-import {replaceThemeData} from './setup/files';
+} = consoleJs;
 
-const exec = require('promisify-child-process');
+const {replaceThemeData} = filesJs;
 
 const run = async() => {
 
@@ -16,7 +17,7 @@ const run = async() => {
   outputIntro();
 
   // Prompt the user for all info needed for installation.
-  const data = promptData([
+  const data = await promptData([
     {
       key: 'name',
       icon: 'earth_africa',
@@ -26,22 +27,22 @@ const run = async() => {
     },
   ]);
 
-  installStep({
+  await installStep({
     title: '1. Renaming plugin',
     thisHappens: replaceThemeData(data),
   });
 
-  installStep({
+  await installStep({
     title: '2. Installing Composer dependencies',
     thisHappens: exec('composer install'),
   });
 
-  installStep({
+  await installStep({
     title: '3. Updating autoloader',
     thisHappens: exec('composer -o dump-autoload'),
   });
 
-  installStep({
+  await installStep({
     title: '4. Building assets',
     thisHappens: exec('npm run build'),
   });

@@ -1,9 +1,17 @@
-import {ora} from 'ora'; // eslint-disable-line import/no-extraneous-dependencies
-import {emoji} from 'node-emoji'; // eslint-disable-line import/no-extraneous-dependencies
-import {chalk} from 'chalk'; // eslint-disable-line import/no-extraneous-dependencies
-import {log, error, variable, label, capCase} from './misc';
-
+const ora = require('ora'); // eslint-disable-line import/no-extraneous-dependencies
+const emoji = require('node-emoji'); // eslint-disable-line import/no-extraneous-dependencies
+const chalk = require('chalk'); // eslint-disable-line import/no-extraneous-dependencies
 const prompt = require('prompt-sync')(); // eslint-disable-line import/no-extraneous-dependencies
+const misc = require('./misc.js');
+
+const {
+  log,
+  error,
+  variable,
+  label,
+  capCase,
+} = misc;
+
 
 /**
  * Prompts a user for something
@@ -18,9 +26,9 @@ const promptFor = ({
 }) => {
   let userInput = '';
 
-  label(`${icon || ''} ${title}`);
+  label(`${emoji.get(icon) || ''} ${title}`);
   do {
-    userInput = prompt(promptLabel);
+    userInput = prompt(`${promptLabel}: `);
 
     if (userInput.length <= minLength) {
       error(error);
@@ -38,7 +46,7 @@ const promptFor = ({
 /**
  * Performs an install step with the ora spinner.
  */
-export const installStep = async({title, thisHappens, isFatal = false}) => {
+module.exports.installStep = async({title, thisHappens, isFatal = false}) => {
   const spinner = ora(title).start();
 
   await thisHappens.then(() => {
@@ -56,9 +64,9 @@ export const installStep = async({title, thisHappens, isFatal = false}) => {
 /**
  * Outputs a success message after successfully setting up the plugin.
  */
-export const installStepFinal = async() => {
+module.exports.installStepFinal = async() => {
   log('');
-  log(`${emoji.get('tada')}${emoji.get('tada')}${emoji.get('tada')} Your theme is now ready! ${emoji.get('tada')}${emoji.get('tada')}${emoji.get('tada')}`);
+  log(`${emoji.get('tada')}${emoji.get('tada')}${emoji.get('tada')} Your plugin is now ready! ${emoji.get('tada')}${emoji.get('tada')}${emoji.get('tada')}`);
   log('');
   log(`Please run ${variable('npm start')} to start developing.`);
   log('');
@@ -68,15 +76,15 @@ export const installStepFinal = async() => {
 /**
  * Prompts the user for all things defined in whatToPromptFor.
  */
-export const promptData = async(whatToPromptFor) => {
+module.exports.promptData = async(whatToPromptFor) => {
   const data = {};
-  whatToPromptFor.forEach((singlePrompt) => {
+  whatToPromptFor.forEach(async(singlePrompt) => {
     data[singlePrompt.key] = promptFor(singlePrompt);
   });
 
   // Implicitly build other things we need from the name.
   if (data.name) {
-    data.packageName = data.name.toLowerCase().split(' ').join('_');
+    data.packageName = data.name.toLowerCase().split(' ').join('-');
     data.namespace = capCase(data.packageName);
   }
 
@@ -86,7 +94,7 @@ export const promptData = async(whatToPromptFor) => {
 /**
  * Outputs the boilerpalte intro.
  */
-export const outputIntro = async() => {
+module.exports.outputIntro = async() => {
   log(chalk.red('---------------------------------------------------------------'));
   log(chalk.red(''));
   log(chalk.red('    _ _ _ ___ '));
@@ -96,8 +104,8 @@ export const outputIntro = async() => {
   log(chalk.red('    |__| |  | | |    |___ |__/ |__| |    |__|  |  |___ '));
   log(chalk.red('    |__| |__| | |___ |___ |  \\ |    |___ |  |  |  |___ '));
   log(chalk.red('    ___  _    _  _ ____ _ _  _  '));
-  log(chalk.red('    |__] |    |  | | __ | |\ |  '));
-  log(chalk.red('    |    |___ |__| |__] | | \|  '));
+  log(chalk.red('    |__] |    |  | | __ | |\\ |  '));
+  log(chalk.red('    |    |___ |__| |__] | | \\|  '));
   log(chalk.red(''));
   log(chalk.red(''));
   log('    Welcome to Boilerplate setup script for your plugin!');
