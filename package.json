@@ -14,7 +14,8 @@
     "dev": "NODE_ENV=development webpack -p --progress --mode development",
     "start": "NODE_ENV=development webpack --progress --watch --display-error-details --display-reasons --mode development",
     "build": "NODE_ENV=production webpack -p --progress --mode production",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "setup": "npm install && node bin/plugin-setup.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -44,7 +45,13 @@
     "uglifyjs-webpack-plugin": "^1.3.0",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.1.0",
-    "webpack-manifest-plugin": "^2.0.3"
+    "webpack-manifest-plugin": "^2.0.3",
+    "promisify-child-process": "^3.1.0",
+    "prompt-sync": "^4.1.6",
+    "ora": "^3.4.0",
+    "node-emoji": "^1.10.0",
+    "chalk": "^2.4.2",
+    "replace-in-file": "^4.0.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
