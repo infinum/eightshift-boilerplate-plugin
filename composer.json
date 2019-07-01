@@ -16,15 +16,13 @@
   ],
   "require": {
     "php": ">=7.0",
-    "infinum/eightshift-libs": "0.5.0"
+    "infinum/eightshift-libs": "dev-develop"
   },
   "require-dev": {
-    "10up/wp_mock": "^0.3.0",
-    "brain/monkey": "^2.2",
     "codedungeon/phpunit-result-printer": "^0.20.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-    "infinum/coding-standards-wp": "*",
-    "phpunit/phpunit": "^6.5",
+    "infinum/coding-standards-wp": "0.4.1",
+    "phpunit/phpunit": "^7",
     "roave/security-advisories": "dev-master"
   },
   "autoload": {
