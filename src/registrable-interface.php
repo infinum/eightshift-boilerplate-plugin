@@ -10,17 +10,19 @@ declare( strict_types=1 );
 
 namespace WP_Boilerplate_Plugin\Core;
 
+use Eightshift_Libs\Core\Registrable as Lib_Registrable;
+
 /**
- * Interface Registerable.
+ * Interface Registrable.
  *
  * An object that can be registered.
  *
  * @since 1.0.0
  */
-interface Registerable {
+interface Registrable extends Lib_Registrable {
 
   /**
-   * Register the current Registerable.
+   * Register the current Registrable.
    *
    * A register method holds the plugin action and filter hooks.
    * Following the single responsibility principle, every class
@@ -29,5 +31,5 @@ interface Registerable {
    *
    * @return void
    */
-  public function register() : void;
+  public function register();
 }
