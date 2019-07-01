@@ -3,9 +3,9 @@ const DEV = process.env.NODE_ENV !== 'production';
 
 const path = require('path');
 const webpack = require('webpack');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
 const appPath = `${path.resolve(__dirname)}`;
@@ -92,24 +92,17 @@ const allOptimizations = {
   },
 };
 
-allOptimizations.minimizer = [
-  new UglifyJsPlugin({
-    cache: true,
-    parallel: true,
-    sourceMap: true,
-    uglifyOptions: {
-      output: {
-        comments: false,
-      },
-      compress: {
-        warnings: false,
-        drop_console: true, // eslint-disable-line camelcase
-      },
-    },
-  }),
-];
+if (!DEV) {
+  allOptimizations.minimizer = [
+    new TerserPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+    }),
+  ];
+}
 
-allPlugins.push(new CleanWebpackPlugin([pluginAdminOutput]));
+allPlugins.push(new CleanWebpackPlugin());
 
 module.exports = [
 
