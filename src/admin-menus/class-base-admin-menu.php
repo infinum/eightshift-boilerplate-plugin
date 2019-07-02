@@ -10,8 +10,6 @@ declare( strict_types=1 );
 
 namespace WP_Boilerplate_Plugin\Admin_Menus;
 
-use WP_Boilerplate_Plugin\Assets\Assets_Aware;
-use WP_Boilerplate_Plugin\Assets\Assets_Awareness;
 use WP_Boilerplate_Plugin\Core\Renderable;
 use WP_Boilerplate_Plugin\Core\Service;
 use WP_Boilerplate_Plugin\View\Escaped_View;
@@ -24,15 +22,12 @@ use Closure;
  *
  * This abstract class can be extended to add new admin menus
  */
-abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
-
-  use Assets_Awareness;
+abstract class Base_Admin_Menu implements Renderable, Service {
 
   /**
    * Register the admin menu.
    */
-  public function register() : void {
-    $this->register_assets();
+  public function register() {
     $this->register_persistence_hooks();
 
     add_action(
@@ -61,7 +56,7 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
    *
    * @return void The rendered content needs to be echoed.
    */
-  public function process_admin_menu( $atts ) : void {
+  public function process_admin_menu( $atts ) {
     $atts                  = $this->process_attributes( $atts );
     $atts['admin_menu_id'] = $this->get_menu_slug();
     $atts['nonce_field']   = $this->render_nonce();
@@ -78,8 +73,6 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
    */
   public function render( array $context = [] ) : string {
     try {
-      $this->enqueue_assets();
-
       $view = new Escaped_View(
         new Templated_View( $this->get_view_uri() )
       );
@@ -235,8 +228,9 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
    *
    * @return void Save action hook.
    */
-  protected function register_persistence_hooks() : void {
+  protected function register_persistence_hooks() {
     $closure = $this->get_persistence_closure();
+
     add_action( 'save_post', $closure );
   }
 
@@ -285,7 +279,7 @@ abstract class Base_Admin_Menu implements Renderable, Service, Assets_Aware {
    *
    * @return void
    */
-  protected function persist( $post_id ) : void {
+  protected function persist( $post_id ) {
     return; // phpcs:ignore
   }
 }

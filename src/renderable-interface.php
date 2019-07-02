@@ -10,12 +10,14 @@ declare( strict_types=1 );
 
 namespace WP_Boilerplate_Plugin\Core;
 
+use Eightshift_Libs\Core\Renderable as Lib_Renderable;
+
 /**
  * Interface Renderable.
  *
  * An object that can be rendered.
  */
-interface Renderable {
+interface Renderable extends Lib_Renderable {
   /**
    * Render the current Renderable.
    *

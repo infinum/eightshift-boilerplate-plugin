@@ -10,9 +10,6 @@ declare( strict_types=1 );
 
 namespace WP_Boilerplate_Plugin\Admin_Menus;
 
-use WP_Boilerplate_Plugin\Assets\Script_Asset;
-use WP_Boilerplate_Plugin\Model;
-
 /**
  * Plugin options menu class
  *
@@ -25,36 +22,6 @@ final class Plugin_Options extends Base_Admin_Menu {
   const MENU_ICON  = 'dashicons-share';
 
   const VIEW_URI = 'views/plugin-options-page';
-
-  const JS_HANDLE = 'plugin-options-page';
-  const JS_URI    = 'plugins.js';
-
-  /**
-   * Get the array of known assets.
-   *
-   * @return array
-   */
-  protected function get_assets() : array {
-
-    $admin_menu_script = new Script_Asset(
-      self::JS_HANDLE,
-      self::JS_URI,
-      [ 'jquery' ],
-      false,
-      Script_Asset::ENQUEUE_FOOTER
-    );
-
-    $admin_menu_script->add_localization(
-      'pluginLocalization',
-      array(
-        'success' => esc_html__( 'Success!!.', 'wp-boilerplate-plugin' ),
-      )
-    );
-
-    return [
-      $admin_menu_script,
-    ];
-  }
 
   /**
    * Get the title to use for the admin page.

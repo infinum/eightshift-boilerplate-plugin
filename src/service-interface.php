@@ -17,6 +17,6 @@ namespace WP_Boilerplate_Plugin\Core;
  *
  * @since 1.0.0
  */
-interface Service extends Registerable {
+interface Service extends Registrable {
 
 }
