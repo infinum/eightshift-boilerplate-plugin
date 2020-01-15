@@ -1,69 +1,35 @@
 {
-  "name": "wp-boilerplate-plugin",
+  "name": "eightshift-boilerplate",
   "version": "1.0.0",
+  "description": "This repository contains all the tools you need to start building a modern WordPress project, using all the latest front end development tools.",
   "author": "Team Eightshift",
-  "private": true,
-  "main": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinum/eightshift-boilerplate.git"
+  },
   "scripts": {
-    "__eslintTheme": "eslint assets/**/*.js",
-    "__stylelintTheme": "stylelint assets/**/*.scss",
+    "__eslintTheme": "eslint src/**/*.js",
+    "__stylelintTheme": "stylelint src/**/*.scss",
     "lintStyle": "npm run __stylelintTheme",
     "lintJs": "npm run __eslintTheme",
-    "lint": "npm run lintJs && npm run lintStyle && bash bin/precommit.sh",
+    "lint": "npm run lintJs && npm run lintStyle && bash ./bin/lintPhp.sh",
     "precommit": "npm run lint",
-    "dev": "NODE_ENV=development webpack -p --progress --mode development",
-    "start": "NODE_ENV=development webpack --progress --watch --display-error-details --display-reasons --mode development",
-    "build": "NODE_ENV=production webpack -p --progress --mode production",
-    "postinstall": "npm run build",
-    "setup": "npm install && node bin/plugin-setup.js"
+    "start": "webpack --progress --watch --display-error-details --display-reasons --mode development",
+    "build": "webpack --progress --mode production",
+    "blocksExample": "cp -R ./node_modules/@eightshift/frontend-libs/blocks/example ./src/blocks/custom/ && composer dump-autoload"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-env": "^7.4.5",
-    "@infinumjs/eslint-config": "^1.3.0",
-    "@infinumjs/stylelint-config": "^1.0.1",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6",
-    "chalk": "^2.4.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "^5.0.3",
-    "cross-env": "^5.2.0",
-    "css-loader": "^3.0.0",
-    "eslint": "^6.0.1",
-    "eslint-plugin-import": "^2.18.0",
-    "file-loader": "^4.0.0",
-    "husky": "^2.7.0",
-    "imports-loader": "^0.8.0",
-    "mini-css-extract-plugin": "^0.7.0",
-    "node-emoji": "^1.10.0",
-    "node-sass": "^4.12.0",
-    "ora": "^3.4.0",
-    "postcss-cssnext": "^3.1.0",
-    "postcss-loader": "^3.0.0",
-    "precss": "^4.0.0",
-    "promisify-child-process": "^3.1.0",
-    "prompt-sync": "^4.1.7",
-    "replace-in-file": "^4.1.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "stylelint": "^10.1.0",
-    "uglifyjs-webpack-plugin": "^2.1.3",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5",
-    "webpack-manifest-plugin": "^2.0.4"
+    "husky": "^3.0.9",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "autoprefixer": "^9.6.0",
-    "css-mqpacker": "^7.0.0",
-    "cssnano": "^4.1.10"
+    "@eightshift/frontend-libs": "^3.0.2"
   },
-  "browserslist": [
-    "last 2 versions",
-    "android >= 4.2",
-    "not ie < 11",
-    "Safari >= 8"
-  ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  }
 }

@@ -1,15 +1,4 @@
+# Project Specific
+/public
 /vendor
-/node_modules/
-
-/assets/public/*
-
-/tests/_reports/coverage
-
-# Mac OS custom attribute store and thumbnails
-*.DS_Store
-._*
-
-# Windows thumbnail cache files
-Thumbs.db
-ehthumbs.db
-ehthumbs_vista.db
+/node_modules
