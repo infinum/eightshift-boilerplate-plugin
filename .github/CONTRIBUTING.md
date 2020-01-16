@@ -1,12 +1,12 @@
-Hi there! Thanks for helping out in improving our WordPress theme boilerplate.
+Hi there! Thanks for helping out in improving our boilerplate.
 
 ## Reporting an issue
 
-If you are not sure how something works be sure to read our [readme](https://github.com/infinum/wp-boilerplate/blob/master/README.md) and [wiki](https://github.com/infinum/wp-boilerplate/wiki). If you found a bug in the code, please [open an issue](https://github.com/infinum/wp-boilerplate/issues/new) and follow the instructions in the issue template.
+If you are not sure how something works be sure to read our [readme](https://github.com/infinum/eightshift-boilerplate-plugin/blob/master/README.md) and [wiki](https://github.com/infinum/eightshift-boilerplate-plugin/wiki). If you found a bug in the code, please [open an issue](https://github.com/infinum/eightshift-boilerplate-plugin/issues/new) and follow the instructions in the issue template.
 
 ## Contributing patches and new features
 
-If you found a bug and want to fix it, or you want to add some new and cool feature, [fork](https://github.com/infinum/wp-boilerplate#fork-destination-box) our repository, then create a `feature` branch from the `master` branch. For instance `feature/some-bug-fix` or `feature/some-cool-new-feature`.
+If you found a bug and want to fix it, or you want to add some new and cool feature, [fork](https://github.com/infinum/eightshift-boilerplate-plugin#fork-destination-box) our repository, then create a `feature` branch from the `master` branch. For instance `feature/some-bug-fix` or `feature/some-cool-new-feature`.
 
 Once you've coded things up, be sure you check that your code is following our [coding standards](https://github.com/infinum/coding-standards-wp). Also test that your code isn't breaking anything :)
 
