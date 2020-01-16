@@ -25,7 +25,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "@eightshift/frontend-libs": "^3.0.2"
+    "@eightshift/frontend-libs": "^3.0.3"
   },
   "husky": {
     "hooks": {
