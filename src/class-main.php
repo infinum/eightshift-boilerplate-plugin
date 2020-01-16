@@ -57,18 +57,18 @@ class Main extends Lib_Core {
       Config::class,
 
       // Manifest.
-      // Lib_Manifest\Manifest::class => [ Config::class ],
+      Lib_Manifest\Manifest::class => [ Config::class ],
 
       // I18n.
       Lib_I18n\I18n::class => [ Config::class ],
 
       // Enqueue.
-      // Lib_Enqueue\Enqueue_Admin::class => [ Config::class, Lib_Manifest\Manifest::class ],
-      // Lib_Enqueue\Enqueue_Theme::class => [ Config::class, Lib_Manifest\Manifest::class ],
-      // Lib_Enqueue\Enqueue_Blocks::class => [ Config::class, Lib_Manifest\Manifest::class ],
+      Lib_Enqueue\Enqueue_Admin::class => [ Config::class, Lib_Manifest\Manifest::class ],
+      Lib_Enqueue\Enqueue_Theme::class => [ Config::class, Lib_Manifest\Manifest::class ],
+      Lib_Enqueue\Enqueue_Blocks::class => [ Config::class, Lib_Manifest\Manifest::class ],
 
       // Blocks.
-      // Lib_Blocks\Blocks::class => [ Config::class ],
+      Lib_Blocks\Blocks::class => [ Config::class ],
     ];
   }
 }

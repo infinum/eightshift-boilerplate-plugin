@@ -68,6 +68,6 @@ class Config extends Lib_Config {
    * @since 4.0.0 Added in the project
    */
   public static function get_project_path( string $path = '' ) : string {
-    return __DIR__ . '..' .  $path;
+    return rtrim( plugin_dir_path( __DIR__ ), '/' ) . $path;
   }
 }
