@@ -1,48 +1,30 @@
 {
-  "name": "infinum/wp-boilerplate-plugin",
-  "type": "wordpress-plugin",
-  "description": "This is WP Boilerplate Plugin, a modern boilerplate/starter plugin",
-  "keywords": [
-    "plugin",
-    "boilerplate",
-    "WordPress"
-  ],
+  "name": "infinum/eightshift-boilerplate",
+  "version": "1.0.0",
+  "description": "This repository contains all the tools you need to start building a modern WordPress project, using all the latest front end development tools.",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Contributors",
-      "homepage": "https://github.com/infinum/wp-boilerplate-plugin/graphs/contributors"
-    }
-  ],
+  "require-dev": {
+    "infinum/coding-standards-wp": "0.4.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5"
+  },
   "require": {
     "php": ">=7.0",
-    "infinum/eightshift-libs": "dev-develop"
-  },
-  "require-dev": {
-    "codedungeon/phpunit-result-printer": "^0.20.1",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.5",
-    "infinum/coding-standards-wp": "0.4.1",
-    "phpunit/phpunit": "^7",
-    "roave/security-advisories": "dev-master"
+    "infinum/eightshift-libs": "^2.0.4"
   },
   "autoload": {
     "classmap": [
-      "src/",
-      "views/",
-      "tests/"
+      "src/"
     ]
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "config": {
     "sort-packages": true,
     "optimize-autoloader": true,
     "process-timeout": 2000
   },
-  "scripts"    : {
-    "check-cs": "@php ./vendor/bin/phpcs --extensions=php --ignore=/vendor/",
-    "fix-cs": "@php ./vendor/bin/phpcbf --extensions=php --ignore=/vendor/",
-    "punit": "@php ./vendor/bin/phpunit -c phpunit.xml.dist --no-coverage --colors=always",
-    "punit-cov": "@php ./vendor/bin/phpunit -c phpunit.xml.dist --colors=always",
-    "pint": "@php ./vendor/bin/phpunit -c phpunit.integration.xml.dist --no-coverage --colors=always",
-    "pint-cov": "@php ./vendor/bin/phpunit -c phpunit.integration.xml.dist --colors=always"
+  "scripts": {
+    "check-cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 7.0-",
+    "fix-cs": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf --runtime-set testVersion 7.0-"
   }
 }

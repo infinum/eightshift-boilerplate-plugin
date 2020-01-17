@@ -4,8 +4,10 @@
  *
  * @since 1.0.0
  *
- * @package WP_Boilerplate_Plugin
+ * @package Eightshift_Boilerplate
  */
+
+declare( strict_types=1 );
 
 if ( ! current_user_can( 'activate_plugins' ) ) {
   return;
