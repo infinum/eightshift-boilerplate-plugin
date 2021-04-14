@@ -1,37 +1,29 @@
 <?xml version="1.0"?>
 <ruleset name="Eightshift Boilerplate ruleset">
-  <description>Ruleset for the Eightshift Boilerplate.</description>
+	<description>Ruleset for the Eightshift Boilerplate.</description>
 
-  <rule ref="Infinum" />
+	<rule ref="Eightshift" />
 
-  <exclude-pattern>*/tests/*</exclude-pattern>
-  <exclude-pattern>*/vendor/*</exclude-pattern>
-  <exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/public/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/storybook/*</exclude-pattern>
 
-  <!-- Additional arguments. -->
-  <arg value="sp"/>
-  <arg name="basepath" value="."/>
-  <arg name="parallel" value="8"/>
-  <arg name="cache"/>
-  <arg name="extensions" value="php"/>
+	<!-- Additional arguments. -->
+	<arg value="sp"/>
+	<arg name="basepath" value="."/>
+	<arg name="parallel" value="8"/>
+	<arg name="extensions" value="php"/>
 
-  <file>.</file>
+	<file>.</file>
 
-  <exclude-pattern>/src/CompiledContainer\.php</exclude-pattern>
+	<!-- Check for PHP cross-version compatibility. -->
+	<config name="testVersion" value="7.2-"/>
+	<rule ref="PHPCompatibilityWP"/>
 
-  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter.Found">
-    <severity>0</severity>
-  </rule>
+	<config name="minimum_supported_wp_version" value="5.3"/>
 
-  <rule ref="WordPress.WP.EnqueuedResourceParameters.NotInFooter">
-    <severity>0</severity>
-  </rule>
+	<exclude-pattern>/src/CompiledContainer\.php</exclude-pattern>
 
-  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
-    <severity>0</severity>
-  </rule>
-
-  <rule ref="WordPress.WP.GlobalVariablesOverride.OverrideProhibited">
-    <severity>0</severity>
-  </rule>
 </ruleset>
