@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Eightshift Boilerplate Title
  * Plugin URI:
@@ -13,20 +14,22 @@
  * @since 1.0.0
  */
 
-declare( strict_types=1 );
+declare(strict_types=1);
 
 namespace EightshiftBoilerplate;
 
 use EightshiftBoilerplate\Main\Main;
 use EightshiftBoilerplateVendor\EightshiftLibs\Cli\Cli;
+use EightshiftBoilerplate\Activate;
+use EightshiftBoilerplate\Deactivate;
 
 /**
  * If this file is called directly, abort.
  *
  * @since 1.0.0
  */
-if ( ! \defined( 'WPINC' ) ) {
-  die;
+if (! \defined('WPINC')) {
+	die;
 }
 
 /**
@@ -38,20 +41,20 @@ $loader = require __DIR__ . '/vendor/autoload.php';
  * The code that runs during plugin activation.
  */
 register_activation_hook(
-  __FILE__,
-  function() {
-    ( new \Core\Activate() )->activate();
-  }
+	__FILE__,
+	function () {
+		PluginFactory::activate();
+	}
 );
 
 /**
  * The code that runs during plugin deactivation.
  */
 register_deactivation_hook(
-  __FILE__,
-  function() {
-    ( new \Core\Deactivate() )->deactivate();
-  }
+	__FILE__,
+	function () {
+		PluginFactory::deactivate();
+	}
 );
 
 
