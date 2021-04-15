@@ -43,7 +43,7 @@ $loader = require __DIR__ . '/vendor/autoload.php';
 register_activation_hook(
 	__FILE__,
 	function () {
-		(new Activate())->activate();
+		PluginFactory::activate();
 	}
 );
 
@@ -53,7 +53,7 @@ register_activation_hook(
 register_deactivation_hook(
 	__FILE__,
 	function () {
-		(new Deactivate())->deactivate();
+		PluginFactory::deactivate();
 	}
 );
 

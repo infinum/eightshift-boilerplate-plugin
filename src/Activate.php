@@ -27,7 +27,6 @@ class Activate implements HasActivationInterface
 	 */
 	public function activate(): void
 	{
-
 		\flush_rewrite_rules();
 	}
 }

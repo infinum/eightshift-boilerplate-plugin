@@ -23,7 +23,6 @@ class Deactivate implements HasDeactivationInterface
 	 */
 	public function deactivate(): void
 	{
-
 		\flush_rewrite_rules();
 	}
 }
