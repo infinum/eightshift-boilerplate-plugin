@@ -25,7 +25,7 @@ class PluginFactory
 	}
 
 	/**
-	 * Activate the plugin.
+	 * Deactivate the plugin.
 	 */
 	public static function deactivate(): void
 	{
