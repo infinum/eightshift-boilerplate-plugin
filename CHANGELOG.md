@@ -6,7 +6,7 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 
 ## [Unreleased]
 
-*No documentation available about unreleased changes as of yet.*
+- Updated whole repository to work with latest libs / frontend-libs versions.
 
 ## [1.2.2] - 2020-05-15
 
