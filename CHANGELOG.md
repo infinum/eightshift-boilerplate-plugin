@@ -4,9 +4,9 @@ All notable changes to this project will be documented in this file.
 
 This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a CHANGELOG](https://keepachangelog.com/).
 
-## [Unreleased]
 
-- Updated whole repository to work with latest libs / frontend-libs versions.
+## [2.0.0] - 2021-08-16
+- Major braking changes do to updates on css variables, and helpers.
 
 ## [1.2.2] - 2020-05-15
 
@@ -63,6 +63,7 @@ Initial tagged release.
 
 [Unreleased]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/master...HEAD
 
+[2.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/v1.2.2...v2.0.0
 [1.2.2]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/v1.1.0...v1.2.0
