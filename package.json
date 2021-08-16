@@ -1,48 +1,47 @@
 {
-  "name": "@eightshift/eightshift-boilerplate-plugin",
-  "version": "1.3.0",
-  "description": "This repository contains all the tools you need to start building a modern WordPress project.",
-  "authors": [
-    {
-      "name": "Eightshift team",
-      "email": "team@eightshift.com",
-      "homepage": "https://eightshift.com/",
-      "role": "Developer / IT Manager"
-    }
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/infinum/eightshift-boilerplate-plugin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/infinum/eightshift-boilerplate-plugin/issues"
-  },
-  "homepage": "https://github.com/infinum/eightshift-boilerplate-plugin#readme",
-  "scripts": {
-    "__eslintTheme": "eslint src/**/*.js",
-    "__stylelintTheme": "stylelint src/**/*.scss",
-    "lintStyle": "npm run __stylelintTheme",
-    "lintJs": "npm run __eslintTheme",
-    "lint": "npm run lintJs && npm run lintStyle && bash ./bin/lintPhp.sh",
-    "precommit": "npm run lint",
-    "start": "webpack --progress --watch --display-error-details --display-reasons --mode development",
-    "build": "webpack --progress --mode production",
-    "blocksExample": "cp -R ./node_modules/@eightshift/frontend-libs/blocks/init/src/blocks/custom/example ./src/blocks/custom/ && composer dump-autoload",
-    "storybookBuild": "build-storybook -s public -o storybook",
-    "storybook": "start-storybook -s public"
-  },
-  "devDependencies": {
-    "husky": "^4.2.5",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "@eightshift/frontend-libs": ">=3.3.x"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  }
+	"name": "@eightshift/eightshift-boilerplate-plugin",
+	"version": "2.0.0",
+	"description": "This repository contains all the tools you need to start building a modern WordPress project.",
+	"authors": [
+		{
+			"name": "Eightshift team",
+			"email": "team@eightshift.com",
+			"homepage": "https://eightshift.com/",
+			"role": "Developer / IT Manager"
+		}
+	],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/infinum/eightshift-boilerplate-plugin.git"
+	},
+	"bugs": {
+		"url": "https://github.com/infinum/eightshift-boilerplate-plugin/issues"
+	},
+	"homepage": "https://github.com/infinum/eightshift-boilerplate-plugin#readme",
+	"scripts": {
+		"__eslintTheme": "eslint src/**/*.js",
+		"__stylelintTheme": "stylelint src/**/*.scss",
+		"lintStyle": "npm run __stylelintTheme",
+		"lintJs": "npm run __eslintTheme",
+		"lint": "npm run lintJs && npm run lintStyle && composer standards:check -- --filter=gitstaged",
+		"start": "webpack --progress --watch --mode development",
+		"build": "webpack --progress --mode production",
+		"test": "wp boilerplate",
+		"storybookBuild": "build-storybook -s public -o storybook",
+		"storybook": "start-storybook -s public"
+	},
+	"devDependencies": {
+		"husky": "^4.3.6",
+		"webpack": "^4.42.0",
+		"webpack-cli": "^4.3.1"
+	},
+	"dependencies": {
+		"@eightshift/frontend-libs": "^5.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint"
+		}
+	}
 }

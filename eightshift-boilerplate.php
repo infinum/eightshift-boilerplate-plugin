@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Eightshift Boilerplate Title
  * Plugin URI:
@@ -13,49 +14,49 @@
  * @since 1.0.0
  */
 
-declare( strict_types=1 );
+declare(strict_types=1);
 
-namespace Eightshift_Boilerplate;
+namespace EightshiftBoilerplate;
+
+use EightshiftBoilerplate\Main\Main;
+use EightshiftBoilerplateVendor\EightshiftLibs\Cli\Cli;
+use EightshiftBoilerplate\Activate;
+use EightshiftBoilerplate\Deactivate;
 
 /**
  * If this file is called directly, abort.
  *
  * @since 1.0.0
  */
-if ( ! \defined( 'WPINC' ) ) {
-  die;
+if (! \defined('WPINC')) {
+	die;
 }
 
 /**
  * Include the autoloader so we can dynamically include the rest of the classes.
- *
- * @since 1.0.0
  */
-require __DIR__ . '/vendor/autoload.php';
+$loader = require __DIR__ . '/vendor/autoload.php';
 
 /**
  * The code that runs during plugin activation.
- *
- * @since 1.0.0
  */
 register_activation_hook(
-  __FILE__,
-  function() {
-    ( new Core\Activate() )->activate();
-  }
+	__FILE__,
+	function () {
+		PluginFactory::activate();
+	}
 );
 
 /**
  * The code that runs during plugin deactivation.
- *
- * @since 1.0.0
  */
 register_deactivation_hook(
-  __FILE__,
-  function() {
-    ( new Core\Deactivate() )->deactivate();
-  }
+	__FILE__,
+	function () {
+		PluginFactory::deactivate();
+	}
 );
+
 
 /**
  * Begins execution of the theme.
@@ -63,7 +64,14 @@ register_deactivation_hook(
  * Since everything within the theme is registered via hooks,
  * then kicking off the theme from this point in the file does
  * not affect the page life cycle.
- *
- * @since 1.0.0
  */
-( new Core\Main() )->register();
+if (class_exists(Main::class)) {
+	(new Main($loader->getPrefixesPsr4(), __NAMESPACE__))->register();
+}
+
+/**
+ * Run all WPCLI commands.
+ */
+if (class_exists(Cli::class)) {
+	(new Cli())->load('boilerplate');
+}

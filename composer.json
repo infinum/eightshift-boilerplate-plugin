@@ -1,51 +1,59 @@
 {
-  "name": "eightshift/eightshift-boilerplate-plugin",
-  "version": "1.3.0",
-  "description": "This repository contains all the tools you need to start building a modern WordPress project.",
-  "keywords": [
-    "composer",
-    "installer",
-    "plugin",
-    "blocks",
-    "Gutenberg",
-    "WordPress"
-  ],
-  "homepage": "https://eightshift.com/",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Eightshift team",
-      "email": "team@eightshift.com",
-      "homepage": "https://eightshift.com/",
-      "role": "Developer / IT Manager"
-    }
-  ],
-  "support": {
-    "issues": "https://github.com/infinum/eightshift-boilerplate-plugin/issues",
-    "source": "https://github.com/infinum/eightshift-boilerplate-plugin"
-  },
-  "require-dev": {
-    "infinum/coding-standards-wp": "0.4.1",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.6"
-  },
-  "require": {
-    "php": ">=7.2",
-    "infinum/eightshift-libs": ">=2.3"
-  },
-  "autoload": {
-    "classmap": [
-      "src/"
-    ]
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "sort-packages": true,
-    "optimize-autoloader": true,
-    "process-timeout": 2000
-  },
-  "scripts": {
-    "standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-    "standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-  }
+	"name": "eightshift/eightshift-boilerplate-plugin",
+	"description": "This repository contains all the tools you need to start building a modern WordPress project.",
+	"keywords": [
+		"composer",
+		"installer",
+		"plugin",
+		"blocks",
+		"Gutenberg",
+		"WordPress"
+	],
+	"homepage": "https://eightshift.com/",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Eightshift team",
+			"email": "team@eightshift.com",
+			"homepage": "https://eightshift.com/",
+			"role": "Developer / IT Manager"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/infinum/eightshift-boilerplate-plugin/issues",
+		"source": "https://github.com/infinum/eightshift-boilerplate-plugin"
+	},
+	"require-dev": {
+		"infinum/eightshift-coding-standards": "^1.1",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+		"szepeviktor/phpstan-wordpress": "^0.7",
+		"php-stubs/wordpress-stubs": "^5.5"
+	},
+	"require": {
+		"php": "^7.2 || <8.0",
+		"infinum/eightshift-libs": "^4.0.0",
+		"typisttech/imposter-plugin": "^0.6.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"EightshiftBoilerplate\\": "src/"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"optimize-autoloader": true,
+		"process-timeout": 2000
+	},
+	"scripts": {
+		"analyze": "@php ./vendor/bin/phpstan analyze",
+		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+	},
+	"extra": {
+		"imposter": {
+			"namespace": "EightshiftBoilerplatePluginVendor"
+		}
+	}
 }
