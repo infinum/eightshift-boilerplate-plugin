@@ -6,12 +6,10 @@
  * Description: Eightshift Boilerplate Description
  * Author: Team Eightshift
  * Author URI: https://eightshift.com/
- * Version: 1.0.0
+ * Version: 3.0.0
  * Text Domain: eightshift-boilerplate
  *
  * @package Eightshift_Boilerplate
- *
- * @since 1.0.0
  */
 
 declare(strict_types=1);
@@ -25,8 +23,6 @@ use EightshiftBoilerplate\Deactivate;
 
 /**
  * If this file is called directly, abort.
- *
- * @since 1.0.0
  */
 if (! \defined('WPINC')) {
 	die;
