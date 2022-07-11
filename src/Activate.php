@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace EightshiftBoilerplate;
 
-use EightshiftBoilerplateVendor\EightshiftLibs\Plugin\HasActivationInterface;
+use EightshiftBoilerplatePluginVendor\EightshiftLibs\Plugin\HasActivationInterface;
 
 /**
  * The plugin activation class.

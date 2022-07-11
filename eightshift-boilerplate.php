@@ -17,9 +17,7 @@ declare(strict_types=1);
 namespace EightshiftBoilerplate;
 
 use EightshiftBoilerplate\Main\Main;
-use EightshiftBoilerplateVendor\EightshiftLibs\Cli\Cli;
-use EightshiftBoilerplate\Activate;
-use EightshiftBoilerplate\Deactivate;
+use EightshiftBoilerplatePluginVendor\EightshiftLibs\Cli\Cli;
 
 /**
  * If this file is called directly, abort.

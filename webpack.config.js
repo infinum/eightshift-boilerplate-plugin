@@ -10,7 +10,7 @@
 		config: {
 			projectDir: __dirname, // Current project directory absolute path.
 			projectUrl: 'dev.boilerplate.com', // Used for providing browsersync functionality.
-			projectPath: 'wp-content/plugins/eightshift-boilerplate-plugin', // Project path relative to project root.
+			projectPath: 'wp-content/plugins/eightshift-boilerplate', // Project path relative to project root.
 		},
 	};
 
