@@ -9,7 +9,7 @@
  * Version: 3.0.0
  * Text Domain: eightshift-boilerplate
  *
- * @package Eightshift_Boilerplate
+ * @package EightshiftBoilerplate
  */
 
 declare(strict_types=1);
