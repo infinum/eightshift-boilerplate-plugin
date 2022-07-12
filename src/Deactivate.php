@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace EightshiftBoilerplate;
 
-use EightshiftBoilerplateVendor\EightshiftLibs\Plugin\HasDeactivationInterface;
+use EightshiftBoilerplatePluginVendor\EightshiftLibs\Plugin\HasDeactivationInterface;
 
 /**
  * The plugin deactivation class.

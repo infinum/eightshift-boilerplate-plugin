@@ -1,6 +1,5 @@
-<p align="center">
-	<img alt="Eightshift Boilerplate Plugin" src="https://repository-images.githubusercontent.com/120769107/9646a28c-e364-4aa3-8ec9-9660fdeed4b7" />
-</p>
+![image](https://user-images.githubusercontent.com/77000136/146530354-49f5cb7c-77d0-4518-b208-6599931c5a03.png#gh-light-mode-only)
+![image](https://user-images.githubusercontent.com/77000136/146530367-c03912bc-367d-44a1-9a22-b8d22915acfa.png#gh-dark-mode-only)
 
 [![GitHub tag](https://img.shields.io/github/tag/infinum/eightshift-boilerplate.svg?style=for-the-badge)](https://github.com/infinum/eightshift-boilerplate)
 [![GitHub stars](https://img.shields.io/github/stars/infinum/eightshift-boilerplate.svg?style=for-the-badge&label=Stars)](https://github.com/infinum/eightshift-boilerplate/)
@@ -60,4 +59,4 @@ Eightshift Boilerplate is maintained and sponsored by
 [Eightshift](https://eightshift.com) and [Infinum](https://infinum.com).
 
 ## License
-Eightshift Boilerplate &copy;2021 [Eightshift](https://eightshift.com) and [Infinum](https://infinum.com). It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Eightshift Boilerplate &copy;2022 [Eightshift](https://eightshift.com) and [Infinum](https://infinum.com). It is free software, and may be redistributed under the terms specified in the LICENSE file.
