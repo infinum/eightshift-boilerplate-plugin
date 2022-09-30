@@ -1,5 +1,4 @@
-![image](https://user-images.githubusercontent.com/77000136/146530354-49f5cb7c-77d0-4518-b208-6599931c5a03.png#gh-light-mode-only)
-![image](https://user-images.githubusercontent.com/77000136/146530367-c03912bc-367d-44a1-9a22-b8d22915acfa.png#gh-dark-mode-only)
+![image](https://repository-images.githubusercontent.com/120769107/243fd405-51fd-4434-bb9d-6c9cf1a5f66a)
 
 [![GitHub tag](https://img.shields.io/github/tag/infinum/eightshift-boilerplate.svg?style=for-the-badge)](https://github.com/infinum/eightshift-boilerplate)
 [![GitHub stars](https://img.shields.io/github/stars/infinum/eightshift-boilerplate.svg?style=for-the-badge&label=Stars)](https://github.com/infinum/eightshift-boilerplate/)
@@ -18,11 +17,11 @@ This repository contains all the tools you need to start building a modern WordP
 - [:scroll: License](#license)
 
 ## Documentation
-**For more documentation details follow [this link](https://infinum.github.io/eightshift-docs).**
+**For more documentation details follow [this link](https://eightshift.com).**
 
 ## Awesome features
 
-Here are some buzzwords why you should use Eightshift Boilerplate for your next project. For more documentation details follow [this link](https://infinum.github.io/eightshift-docs).
+Here are some buzzwords why you should use Eightshift Boilerplate for your next project. For more documentation details follow [this link](https://eightshift.com).
 
 - Custom Block Editor blocks
 - OOP
@@ -41,14 +40,14 @@ Here are some buzzwords why you should use Eightshift Boilerplate for your next 
 
 ## Requirements
 
-You can find all requirements on [this link](https://infinum.github.io/eightshift-docs/docs/requirements).
+You can find all requirements on [this link](https://eightshift.com/docs/requirements).
 
 ## Quick start
 
-You can find all steps necessary to start you project on [this link](https://infinum.github.io/eightshift-docs/docs/plugin).
+You can find all steps necessary to start you project on [this link](https://eightshift.com/docs/plugin).
 
 ## Documentation
-**For the full documentation please check this [link](https://infinum.github.io/eightshift-docs).**
+**For the full documentation please check this [link](https://eightshift.com).**
 
 ## Who do I talk to?
 
