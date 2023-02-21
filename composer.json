@@ -26,12 +26,12 @@
 	"require-dev": {
 		"infinum/eightshift-coding-standards": "^1.6",
 		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-		"szepeviktor/phpstan-wordpress": "^1.0.3",
-		"php-stubs/wordpress-stubs": "^5.9"
+		"szepeviktor/phpstan-wordpress": "^1.1.7",
+		"php-stubs/wordpress-stubs": "^6.1.1"
 	},
 	"require": {
 		"php": "^7.4 || <8.0",
-		"infinum/eightshift-libs": "^6.0.0",
+		"infinum/eightshift-libs": "^6.4.0",
 		"typisttech/imposter-plugin": "^0.6.2"
 	},
 	"autoload": {
