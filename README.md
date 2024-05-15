@@ -4,58 +4,36 @@
 [![GitHub stars](https://img.shields.io/github/stars/infinum/eightshift-boilerplate.svg?style=for-the-badge&label=Stars)](https://github.com/infinum/eightshift-boilerplate/)
 [![license](https://img.shields.io/github/license/infinum/eightshift-boilerplate.svg?style=for-the-badge)](https://github.com/infinum/eightshift-boilerplate)
 
-# Eightshift WordPress Boilerplate Plugin
+## About Eightshift Boilerplate Plugin
 
-This repository contains all the tools you need to start building a modern WordPress plugin, using all the latest front end development tools.
+Eightshift Boilerplate is a modern, Gutenberg-oriented, WordPress plugin boilerplate. It includes everything you need to start building a modern WordPress project, using state-of-the-art frontend development tools, and it's at the core of the Eightshift Development Kit. [Find out more in Eightshift Docs &rarr;](https://eightshift.com)
 
-## :books: Table of contents
-- [:mortar_board: Documentation](#documentation)
-- [:tada: Awesome features](#awesome-features)
-- [:school_satchel: Requirements](#requirements)
-- [:rocket: Quick start](#quick-start)
-- [:mailbox: Who do I talk to?](#who-do-i-talk-to)
-- [:scroll: License](#license)
+## ⚠️ Requirements
+To get started, you'll need:
 
-## Documentation
-**For more documentation details follow [this link](https://eightshift.com).**
+* [Node LTS](https://nodejs.org/)
+* [Composer](https://getcomposer.org/)
+* [git](https://git-scm.com/)
+* [WP-CLI](https://wp-cli.org/)
 
-## Awesome features
+## 🏁 Quick start
 
-Here are some buzzwords why you should use Eightshift Boilerplate for your next project. For more documentation details follow [this link](https://eightshift.com).
+If you'd like to get started ASAP, run `npx eightshift-create theme` inside of `wp-content/themes` to bootstrap your Eightshift Development Kit project.
 
-- Custom Block Editor blocks
-- OOP
-- WP-CLI
-- Webpack
-- SASS
-- Autoprefixer
-- JS Compiler (Babel)
-- Synchronised browser testing
-- Minifying
-- PHPCS
-- Easy SASS media queries
-- Cache busting
-- Eightshift libs
-- Eightshift Frontend Libs
+[Documentation on getting started with Eightshift Boilerplate is available in Eightshift Docs &rarr;](https://eightshift.com/docs/theme/)
 
-## Requirements
+## 📚 Documentation
 
-You can find all requirements on [this link](https://eightshift.com/docs/requirements).
+Eightshift Development Kit comes with [comprehensive documentation](https://eightshift.com).
 
-## Quick start
+## 🛟 Getting help
 
-You can find all steps necessary to start you project on [this link](https://eightshift.com/docs/plugin).
+If you have any questions or problems, please [open an issue](https://github.com/infinum/eightshift-boilerplate-plugin/issues) on GitHub. 
 
-## Documentation
-**For the full documentation please check this [link](https://eightshift.com).**
+When submitting issues or otherwise participating in development, please follow our [code of conduct](https://github.com/infinum/eightshift-boilerplate-plugin/blob/develop/CODE_OF_CONDUCT.md), and fill out the issue template properly. We'll do our best to answer your issues as quickly as humanly possible: following these steps helps us out a lot in doing that.
 
-## Who do I talk to?
+## 👩‍💻 Maintainers 🧑‍💻 
+Eightshift Boilerplate is maintained and sponsored by [Infinum](https://infinum.com).
 
-If you have any questions or problems, please [open an issue](https://github.com/infinum/eightshift-boilerplate-plugin/issues) on github and we will do our best to give you a timely answer.
-
-## Maintainers
-Eightshift Boilerplate is maintained and sponsored by
-[Eightshift](https://eightshift.com) and [Infinum](https://infinum.com).
-
-## License
-Eightshift Boilerplate &copy;2022 [Eightshift](https://eightshift.com) and [Infinum](https://infinum.com). It is free software, and may be redistributed under the terms specified in the LICENSE file.
+## ⚖️ License
+Eightshift Boilerplate Plugin [Infinum](https://infinum.com). It is free software, and may be redistributed under the terms specified in the LICENSE file.
