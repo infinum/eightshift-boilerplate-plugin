@@ -1,6 +1,7 @@
 # Project Specific
 /public
 /vendor
+/vendor-prefixed
 /node_modules
 /storybook
 .DS_Store

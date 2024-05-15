@@ -1,11 +1,10 @@
 {
 	"name": "eightshift/eightshift-boilerplate-plugin",
 	"description": "This repository contains all the tools you need to start building a modern WordPress project.",
+	"private": true,
 	"keywords": [
-		"composer",
-		"installer",
 		"plugin",
-		"blocks",
+		"eightshift",
 		"Gutenberg",
 		"WordPress"
 	],
@@ -24,19 +23,14 @@
 		"source": "https://github.com/infinum/eightshift-boilerplate-plugin"
 	},
 	"require-dev": {
-		"infinum/eightshift-coding-standards": "^1.6",
-		"dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-		"szepeviktor/phpstan-wordpress": "^1.1.7",
-		"php-stubs/wordpress-stubs": "^6.1.1"
+		"wp-cli/wp-cli": "^2.9"
 	},
 	"require": {
-		"php": "^7.4 || <8.0",
-		"infinum/eightshift-libs": "^6.4.0",
-		"typisttech/imposter-plugin": "^0.6.2"
+		"php": "^7.4 || >=8.0"
 	},
 	"autoload": {
 		"psr-4": {
-			"EightshiftBoilerplate\\": "src/"
+			"EightshiftBoilerplatePlugin\\": "src/"
 		}
 	},
 	"minimum-stability": "dev",
@@ -44,20 +38,6 @@
 	"config": {
 		"sort-packages": true,
 		"optimize-autoloader": true,
-		"process-timeout": 2000,
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true,
-			"typisttech/imposter-plugin": true
-		}
-	},
-	"scripts": {
-		"analyze": "@php ./vendor/bin/phpstan analyze",
-		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-	},
-	"extra": {
-		"imposter": {
-			"namespace": "EightshiftBoilerplatePluginVendor"
-		}
+		"process-timeout": 2000
 	}
 }
