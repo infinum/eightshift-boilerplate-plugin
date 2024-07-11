@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a CHANGELOG](https://keepachangelog.com/).
 
+## [5.0.1]
+
+### Changed
+- Main CLI command prefix.
 
 ## [5.0.0]
 
@@ -91,6 +95,7 @@ Initial tagged release.
 
 [Unreleased]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/master...HEAD
 
+[5.0.1]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/4.0.0...5.0.0
 [4.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/3.0.0...4.0.0
 [3.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/2.0.0...3.0.0

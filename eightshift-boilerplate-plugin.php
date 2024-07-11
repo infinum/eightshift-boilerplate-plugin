@@ -5,7 +5,7 @@
  * Description: This is a initial setup for the Eightshift WordPress Boilerplate Plugin.
  * Author: Eightshift team
  * Author URI: https://eightshift.com/
- * Version: 5.0.0
+ * Version: 5.0.1
  * License: MIT
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: eightshift-boilerplate-plugin
@@ -39,5 +39,5 @@ require __DIR__ . '/vendor/autoload.php';
  * Run all WPCLI commands.
  */
 if (class_exists(Cli::class)) {
-	(new Cli())->load('boilerplate');
+	(new Cli())->load('boilerplate-plugin');
 }
