@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Plugin Name: Eightshift Boilerplate Setup Plugin
- * Description: This is a initial setup for the Eightshift WordPress Boilerplate Plugin.
+ * Plugin Name: Eightshift Boilerplate Plugin
+ * Description: This is a minimal plugin boilerplate for the Eightshift WordPress Boilerplate Plugin.
  * Author: Eightshift team
  * Author URI: https://eightshift.com/
- * Version: 5.0.1
+ * Version: 6.0.0
  * License: MIT
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: eightshift-boilerplate-plugin
@@ -17,27 +17,64 @@ declare(strict_types=1);
 
 namespace EightshiftBoilerplatePlugin;
 
-use EightshiftLibs\Cli\Cli;
+use EightshiftBoilerplatePlugin\Cache\ManifestCache;
+use EightshiftBoilerplatePlugin\Main\Main;
 
 /**
- * If this file is called directly, abort.
+ * If this file is called directly, abort
  */
 if (! \defined('WPINC')) {
 	die;
 }
 
 /**
- * Include the autoloader so we can dynamically include the rest of the classes.
+ * Bailout, if the theme is not loaded via Composer.
  */
 if (!\file_exists(__DIR__ . '/vendor/autoload.php')) {
 	return;
 }
 
-require __DIR__ . '/vendor/autoload.php';
+/**
+ * Require the Composer autoloader.
+ */
+$loader = require __DIR__ . '/vendor/autoload.php';
 
 /**
- * Run all WPCLI commands.
+ * Require the Composer autoloader for the prefixed libraries.
  */
-if (class_exists(Cli::class)) {
-	(new Cli())->load('boilerplate-plugin');
+if (\file_exists(__DIR__ . '/vendor-prefixed/autoload.php')) {
+	require __DIR__ . '/vendor-prefixed/autoload.php';
+}
+
+if (\class_exists(PluginFactory::class)) {
+	/**
+	 * The code that runs during plugin activation.
+	 */
+	\register_activation_hook(
+		__FILE__,
+		function () {
+			PluginFactory::activate();
+		}
+	);
+
+	/**
+	 * The code that runs during plugin deactivation.
+	 */
+	\register_deactivation_hook(
+		__FILE__,
+		function () {
+			PluginFactory::deactivate();
+		}
+	);
+}
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ */
+if (\class_exists(Main::class) && \class_exists(ManifestCache::class)) {
+	(new ManifestCache())->setAllCache();
+	(new Main($loader->getPrefixesPsr4(), __NAMESPACE__))->register();
 }
