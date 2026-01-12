@@ -1,43 +1,81 @@
 {
-	"name": "eightshift/eightshift-boilerplate-plugin",
-	"description": "This repository contains all the tools you need to start building a modern WordPress project.",
-	"private": true,
-	"keywords": [
-		"plugin",
-		"eightshift",
-		"Gutenberg",
-		"WordPress"
-	],
-	"homepage": "https://eightshift.com/",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Eightshift team",
-			"email": "team@eightshift.com",
-			"homepage": "https://eightshift.com/",
-			"role": "Developer / IT Manager"
-		}
-	],
-	"support": {
-		"issues": "https://github.com/infinum/eightshift-boilerplate-plugin/issues",
-		"source": "https://github.com/infinum/eightshift-boilerplate-plugin"
-	},
-	"require-dev": {
-		"wp-cli/wp-cli": "^2.9"
-	},
-	"require": {
-		"php": ">=8.2"
-	},
-	"autoload": {
-		"psr-4": {
-			"EightshiftBoilerplatePlugin\\": "src/"
-		}
-	},
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"config": {
-		"sort-packages": true,
-		"optimize-autoloader": true,
-		"process-timeout": 2000
-	}
+  "name": "eightshift/eightshift-boilerplate-plugin",
+  "description": "This repository contains all the tools you need to start building a modern WordPress project.",
+  "private": true,
+  "keywords": [
+    "plugin",
+    "eightshift",
+    "Gutenberg",
+    "WordPress"
+  ],
+  "homepage": "https://eightshift.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eightshift team",
+      "email": "team@eightshift.com",
+      "homepage": "https://eightshift.com/",
+      "role": "Developer / IT Manager"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/infinum/eightshift-boilerplate-plugin/issues",
+    "source": "https://github.com/infinum/eightshift-boilerplate-plugin"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "1.2.0",
+    "infinum/eightshift-coding-standards": "^3.0.0",
+    "szepeviktor/phpstan-wordpress": "2.0.3"
+  },
+  "require": {
+    "php": ">=8.3",
+    "infinum/eightshift-libs": "^11.0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "EightshiftBoilerplatePlugin\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "process-timeout": 2000,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "pestphp/pest-plugin": true,
+      "composer/installers": true
+    }
+  },
+  "scripts": {
+    "test:types": "@php ./vendor/bin/phpstan analyze",
+    "test:standards": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs --runtime-set testVersion 8.3-",
+    "test": [
+      "@test:standards",
+      "@test:types"
+    ],
+    "prefix-namespaces": [
+      "@php strauss.phar",
+      "composer dump-autoload"
+    ],
+    "post-install-cmd": [
+      "@php strauss.phar",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "@php strauss.phar",
+      "composer dump-autoload"
+    ]
+  },
+  "extra": {
+    "strauss": {
+      "namespace_prefix": "EightshiftBoilerplatePluginVendor",
+      "exclude_from_prefix": {
+        "file_patterns": [
+          "/Example.php$/"
+        ]
+      }
+    }
+  }
 }
