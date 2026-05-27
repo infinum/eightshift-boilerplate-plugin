@@ -29,11 +29,9 @@ class Main extends AbstractMain
 	 * The register_service method will call the register() method in every service class,
 	 * which holds the actions and filters - effectively replacing the need to manually add
 	 * them in one place.
-	 *
-	 * @return void
 	 */
 	public function register(): void
 	{
-		\add_action('plugins_loaded', [$this, 'registerServices']);
+		\add_action('plugins_loaded', $this->registerServices(...));
 	}
 }

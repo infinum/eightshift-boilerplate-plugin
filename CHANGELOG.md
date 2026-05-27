@@ -4,6 +4,61 @@ All notable changes to this project will be documented in this file.
 
 This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a CHANGELOG](https://keepachangelog.com/).
 
+## [7.0.0]
+
+### Added
+
+- Added `rector/rector` as a dev dependency along with `test:rector`, `fix:rector`, and `fix:standards` Composer scripts.
+- Added `phpstan/phpstan-deprecation-rules` to surface deprecation usage during static analysis.
+- Added `php-stubs/wordpress-stubs` for accurate WordPress type information in PHPStan.
+- Added `roave/security-advisories` to block installation of dependencies with known security advisories.
+- Added `void` return type to activation and deactivation hook closures.
+
+### Changed
+
+- Bumped minimum PHP version from `8.3` to `8.4`.
+- Bumped `infinum/eightshift-libs` from `^11.0.4` to `^12.3.4` (major upgrade).
+- Bumped `infinum/eightshift-coding-standards` from `^3.0.0` to `^4.0.2` (major upgrade).
+- Bumped `dealerdirect/phpcodesniffer-composer-installer` from `1.2.0` to `1.2.1`.
+- Switched object instantiation to PHP 8.4 "new without parentheses" syntax: `(new Foo())->bar()` → `new Foo()->bar()`.
+- Switched action callbacks to first-class callable syntax: `[$this, 'method']` → `$this->method(...)`.
+- PHPStan now scans the entire project root (with explicit excludes) and bootstraps WordPress stubs.
+- PHPCS `testVersion` raised from `8.3-` to `8.4-`.
+- Prettier `printWidth` increased from `180` to `300`.
+
+### Removed
+
+- Removed redundant `@return void` PHPDoc tags now covered by native return types.
+- Removed `Generic.Files.LineLength.TooLong` exclusion from PHPCS ruleset.
+- Removed `pestphp/pest-plugin` from Composer `allow-plugins`.
+- Removed PHPStan `ignoreErrors` block (no longer needed).
+
+### Migration guide
+
+Upgrading from `6.x` to `7.0.0` is a breaking change. Follow these steps:
+
+1. **PHP version** — ensure your server runs PHP `8.4+`. Update your `composer.json` `require.php` constraint to `">=8.4"`.
+2. **Dependencies** — bump in your project `composer.json`:
+   - `infinum/eightshift-libs`: `^12.0`
+   - `infinum/eightshift-coding-standards`: `^4.0`
+   - Then run `composer update`.
+3. **PHP 8.4 syntax** — if you maintain a plugin based on a previous boilerplate version, run Rector to migrate object instantiation and callable patterns:
+   ```bash
+   composer require --dev rector/rector
+   composer fix:rector
+   ```
+4. **PHPStan config** — add the deprecation rules include and WordPress stubs bootstrap to your `phpstan.neon.dist`:
+   ```yaml
+   includes:
+     - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+   parameters:
+     bootstrapFiles:
+       - %rootDir%/../../php-stubs/wordpress-stubs/wordpress-stubs.php
+   ```
+5. **PHPCS config** — raise `testVersion` to `8.4-` in `phpcs.xml.dist`.
+6. **Strauss** — re-run `composer prefix-namespaces` after updating to rebuild the prefixed vendor directory against the new `eightshift-libs` major.
+7. **Verify** — run `composer test` (Rector, PHPCS, PHPStan) and resolve any remaining issues before deploying.
+
 ## [6.0.0]
 
 ### Changed
@@ -115,6 +170,7 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 Initial tagged release.
 
 [Unreleased]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/master...HEAD
+[7.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/6.0.0...7.0.0
 [6.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/5.0.1...6.0.0
 [5.0.1]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/5.0.0...5.0.1
 [5.0.0]: https://github.com/infinum/eightshift-boilerplate-plugin/compare/4.0.0...5.0.0
