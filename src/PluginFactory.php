@@ -19,22 +19,18 @@ final class PluginFactory
 {
 	/**
 	 * Activate the plugin
-	 *
-	 * @return void
 	 */
 	public static function activate(): void
 	{
-		(new Activate())->activate();
+		new Activate()->activate();
 	}
 
 	/**
 	 * Deactivate the plugin
-	 *
-	 * @return void
 	 */
 	public static function deactivate(): void
 	{
-		(new Deactivate())->deactivate();
+		new Deactivate()->deactivate();
 	}
 
 	/**

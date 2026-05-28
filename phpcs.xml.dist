@@ -20,14 +20,10 @@
 	<file>.</file>
 
 	<!-- Check for PHP cross-version compatibility. -->
-	<config name="testVersion" value="8.3-"/>
+	<config name="testVersion" value="8.4-"/>
 	<rule ref="PHPCompatibilityWP"/>
 
 	<config name="minimum_supported_wp_version" value="6.3"/>
 
 	<exclude-pattern>/src/CompiledContainer\.php</exclude-pattern>
-
-	<rule ref="Generic.Files.LineLength">
-		<exclude name="Generic.Files.LineLength.TooLong"/>
-	</rule>
 </ruleset>

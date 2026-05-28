@@ -5,7 +5,7 @@
  * Description: This is a minimal plugin boilerplate for the Eightshift WordPress Boilerplate Plugin.
  * Author: Eightshift team
  * Author URI: https://eightshift.com/
- * Version: 6.0.0
+ * Version: 7.0.0
  * License: MIT
  * License URI: http://www.gnu.org/licenses/gpl.html
  * Text Domain: eightshift-boilerplate-plugin
@@ -52,7 +52,7 @@ if (\class_exists(PluginFactory::class)) {
 	 */
 	\register_activation_hook(
 		__FILE__,
-		function () {
+		function (): void {
 			PluginFactory::activate();
 		}
 	);
@@ -62,7 +62,7 @@ if (\class_exists(PluginFactory::class)) {
 	 */
 	\register_deactivation_hook(
 		__FILE__,
-		function () {
+		function (): void {
 			PluginFactory::deactivate();
 		}
 	);
@@ -75,6 +75,6 @@ if (\class_exists(PluginFactory::class)) {
  * not affect the page life cycle.
  */
 if (\class_exists(Main::class) && \class_exists(ManifestCache::class)) {
-	(new ManifestCache())->setAllCache();
-	(new Main($loader->getPrefixesPsr4(), __NAMESPACE__))->register();
+	new ManifestCache()->setAllCache();
+	new Main($loader->getPrefixesPsr4(), __NAMESPACE__)->register();
 }

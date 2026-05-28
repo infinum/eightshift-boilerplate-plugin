@@ -19,8 +19,6 @@ class Deactivate implements HasDeactivationInterface
 {
 	/**
 	 * Deactivate the plugin
-	 *
-	 * @return void
 	 */
 	public function deactivate(): void
 	{

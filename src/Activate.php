@@ -19,8 +19,6 @@ class Activate implements HasActivationInterface
 {
 	/**
 	 * Activate the plugin
-	 *
-	 * @return void
 	 */
 	public function activate(): void
 	{
