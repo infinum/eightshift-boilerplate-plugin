@@ -47,9 +47,7 @@ final class PluginFactory
 	{
 		static $plugin = null;
 
-		if ($plugin === null) {
-			$plugin = new Main($prefixes, $namespace);
-		}
+		$plugin ??= new Main($prefixes, $namespace);
 
 		return $plugin;
 	}
